@@ -66,3 +66,11 @@ body {
 .pointer {
   cursor:pointer;
 }
+.profile-image{
+  width:400px;
+  height:399px;
+  object-fit: cover;
+}
+.userthumb img{
+  object-fit: cover;
+}

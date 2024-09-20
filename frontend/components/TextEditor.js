@@ -14,6 +14,7 @@ const TextEditor = () => {
 
   return (
     <div className="  mx-auto">  <div className="mb-4">
+        <h2 className="text-2xl font-bold mb-4">Create Content On Minds</h2>
     <label className="block text-sm font-medium text-gray-700 mb-1">Title</label>
     <input
       type="text"
@@ -42,7 +43,7 @@ const TextEditor = () => {
 
         </select>
   </div>
-      <h2 className="text-2xl font-bold mb-4">Your Content</h2>
+      <h2 className="mb-4">Your Content</h2>
       <ReactQuill
         value={editorHtml}
         onChange={handleChange}

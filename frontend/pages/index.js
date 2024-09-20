@@ -6,6 +6,7 @@ import AllPosts from '@/sections/allPosts'
 import allPosts from '@/sections/allPosts'
 import Following from '@/sections/Following'
 import ForYou from '@/sections/ForYou'
+import Head from 'next/head'
 import React, { useState } from 'react'
 
 const index = () => {
@@ -18,6 +19,12 @@ const index = () => {
   }
   return (
     <>
+    
+     <Head>
+        <title>Home | Welcome to Minds. Share your life, share your story and experience</title>
+        <meta name="description" content="Minds is a place where people shre and interract ith other individuals accross the globe. Own your story and share it!" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
     <Header/> 
      
     <div class="flex justify-center py-5 mx-50">
