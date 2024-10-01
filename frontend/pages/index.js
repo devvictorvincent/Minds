@@ -2,18 +2,22 @@ import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import LeftNavigation from '@/components/LeftNavigation'
 import PostSummary from '@/components/PostSummary'
+import { categories } from '@/data/categories'
 import AllPosts from '@/sections/allPosts'
 import allPosts from '@/sections/allPosts'
 import Following from '@/sections/Following'
 import ForYou from '@/sections/ForYou'
+import PostFilter from '@/sections/PostFilter'
 import Head from 'next/head'
 import React, { useState } from 'react'
 
 const index = () => {
-  const [view, setView] = useState('All');
+  const [view, setView] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  console.log(selectedCategory);
   const togView = (status) =>
   {
-    setView(status);
+    setSelectedCategory(status);
     console.log(status);
 
   }
@@ -28,24 +32,22 @@ const index = () => {
     <Header/> 
      
     <div class="flex justify-center py-5 mx-50">
-      <div className={`item pointer  p-3 rounded-xl ${view == 'All'? 'bg-white': '' }`} onClick={() => (togView('All'))}>
-        All
+     
+      {categories.map((category, index) => (
+        <div className={`item pointer  p-3 m-2 rounded-xl ${view == 'All'? 'bg-white': '' }`} 
+        onClick={() => (togView(category.name))}
+        style={{
+         backgroundColor: category.name == selectedCategory ? 'blue' :'', color: category.name == selectedCategory ? 'white' :''
+        }}>
+        {category.name}
       </div> 
-      <div className={`item pointer  p-3 rounded-xl ${view == 'ForYou'? 'bg-white': '' }`} onClick={() => (togView('ForYou'))}>
-        For You
-      </div>
-      <div className={`item pointer  p-3 rounded-xl ${view == 'Following'? 'bg-white': '' }`} onClick={() => (togView('Following'))}>
-        Following
-      </div>
+      ))}
+      
+   
+       
     </div>
 <div className="content-box bg-gray-200">
-   {view === 'All' ? (
-        <AllPosts />
-      ) : view === 'ForYou' ? (
-        <ForYou />
-      ) : (
-        <Following />
-      )}
+   <PostFilter category={selectedCategory} />
 </div>
    
     

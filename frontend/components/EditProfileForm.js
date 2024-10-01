@@ -1,11 +1,15 @@
 // EditProfileForm.js
+import useAccount from '@/data/useAccount';
 import React, { useState } from 'react';
 
 const EditProfileForm = () => {
+  const baseUrl = "https://api.vikaxnet.com/gallery/"
+  const { data: user, loading, error } = useAccount();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [bio, setBio] = useState('');
   const [avatar, setAvatar] = useState(null);
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,10 +22,22 @@ const EditProfileForm = () => {
       <h2 className="text-2xl font-bold mb-4">Edit Profile</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+          <label className="block text-sm font-medium text-gray-700 mb-1">First Name</label>
           <input
             type="text"
-            value={name}
+            value={user.firstname}
+            onChange={(e) => setName(e.target.value)}
+            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
+            placeholder="Enter your name"
+            required
+          />
+        </div>
+        
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+          <input
+            type="text"
+            value={user.firstname}
             onChange={(e) => setName(e.target.value)}
             className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
             placeholder="Enter your name"
@@ -32,7 +48,7 @@ const EditProfileForm = () => {
           <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
           <input
             type="email"
-            value={email}
+            value={user.email}
             onChange={(e) => setEmail(e.target.value)}
             className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
             placeholder="Enter your email"
@@ -42,7 +58,7 @@ const EditProfileForm = () => {
         <div className="mb-4">
           <label className="block text-sm font-medium text-gray-700 mb-1">Bio</label>
           <textarea
-            value={bio}
+            value={user.bio}
             onChange={(e) => setBio(e.target.value)}
             className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
             placeholder="Tell us about yourself"
@@ -57,6 +73,16 @@ const EditProfileForm = () => {
             className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-600"
             accept="image/*"
           />
+
+{user.photo && (
+          <div>
+            <img
+              src={baseUrl+user.photo}
+              alt="Profile Preview"
+              style={{ width: "150px", height: "150px", borderRadius: "50%", marginBottom: "20px" }}
+            />
+          </div>
+        )}
         </div>
         <button
           type="submit"

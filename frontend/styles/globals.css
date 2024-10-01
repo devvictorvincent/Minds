@@ -74,3 +74,66 @@ body {
 .userthumb img{
   object-fit: cover;
 }
+
+/* Button style */
+.loader-button {
+  position: relative;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.loader-button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+/* Rotating spinner */
+.loader-button .spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  position: absolute;
+  left: 10px;
+}
+
+/* Keyframe for rotating the spinner */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Hide spinner when not loading */
+.loader-button .spinner.hidden {
+  display: none;
+}
+
+.alert{
+  padding:10px;
+
+}
+
+.alert-error{
+  background-color: chocolate;
+  color:white;
+}
+.post-thumbnail{
+  width:200px;
+  height:300px;
+  object-fit: cover;
+}

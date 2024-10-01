@@ -1,6 +1,7 @@
 // RightMenu.js
 import React, { useState } from 'react';
 import { HiMenu } from 'react-icons/hi';
+import LogoutButton from './LogoutButton';
 
 const RightMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,7 +29,9 @@ const RightMenu = () => {
           <ul>
             <li className="py-2 border-b border-gray-600"><a href="/">Home</a></li>
             <li className="py-2 border-b border-gray-600"><a href="/me/profile">Profile</a></li> 
-            <li className="py-2"><a href="/">Logout</a></li>
+            <li className="py-2">
+              <LogoutButton />
+              </li>
           </ul>
         </div>
       </div>
