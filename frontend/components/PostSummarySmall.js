@@ -6,27 +6,30 @@ import Link from 'next/link';
 
  
 
-const PostSummary = ({post}) => {
+const PostSummarySmall= ({post}) => {
   const assetUrl = "https://api.vikaxnet.com/gallery/";
   
   return (
-    <div className="p-6 w-9/12 my-8 mx-auto bg-white rounded-xl shadow-md  space-x-12"> 
+    <div className="p-2 w-9/12 mx-auto bg-white rounded-xl shadow-md  space-x-12"
+    style={{
+        padding:20
+    }}> 
       <AuthorSleeve 
       name={post.user.firstname+ ' ' + post.user.lastname}
       photo={post.user.photo}/>
       
       
-      <div class=" flex items-center">
+      <div class="items-center">
       
       <Link href={`/post/${post.id}`} passHref>
             
 
-    <div class="post flex justify-space">
-      <div class="post-thumbnail">
+    <div class="posty justify-space">
+      <div class="post-thumbndail" style={{margin:0}}>
         <img src={assetUrl+post.photo} />
       </div>
       <div class="p-6">
-      <h1 className="text-4xl">  {post.title}</h1>
+      <h1 className="">  {post.title}</h1>
       <p
       style={{
         fontSize:12,
@@ -38,8 +41,8 @@ const PostSummary = ({post}) => {
     </Link>
 
 </div>
- <InfoBar 
- date={post.created_at}
+ <InfoBar type={1}
+ date={post.dated}
  likes={post.likes}
  views={post.views}
  />
@@ -48,4 +51,4 @@ const PostSummary = ({post}) => {
   )
 }
 
-export default PostSummary
+export default PostSummarySmall

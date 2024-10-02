@@ -1,9 +1,12 @@
 import Cookies from 'js-cookie';
 import Router from 'next/router';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { AuthContext } from '@/AuthContext';
 
 const RegisterPage = () => {
   const baseUrl = "https://api.vikaxnet.com";
+  
+  const {authenticate} =useContext(AuthContext);
 
   const [isLoading, setisLoading] =useState(false);
     const [error, setError] =useState(null);
@@ -70,7 +73,7 @@ const RegisterPage = () => {
                 {
                   const token =  goRresponse.data.token;
                   Cookies.set('token', token, { expires: 7 }); // The token will expire after 7 days
-      
+                  authenticate(token, goRresponse.data.user);
                  Router.push("/intrests");
                      
                      

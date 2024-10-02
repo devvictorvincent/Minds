@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { HiMenu } from 'react-icons/hi';
 import LogoutButton from './LogoutButton';
+import Link from 'next/link';
 
 const RightMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,8 +28,13 @@ const RightMenu = () => {
             <h2 class="float-right pointer" onClick={toggleMenu}>Close(X) </h2>
           <h2 className="text-2xl font-semibold mb-4">Menu</h2>
           <ul>
-            <li className="py-2 border-b border-gray-600"><a href="/">Home</a></li>
-            <li className="py-2 border-b border-gray-600"><a href="/me/profile">Profile</a></li> 
+            <li className="py-2 border-b border-gray-600"><Link href="/">Home</Link>
+            
+            </li>
+            <li className="py-2 border-b border-gray-600"> <Link href="/me/profile">Profile</Link>
+             
+              
+              </li> 
             <li className="py-2">
               <LogoutButton />
               </li>

@@ -9,7 +9,7 @@ import ForYou from '@/sections/ForYou'
 import Head from 'next/head'
 import React, { useState } from 'react'
 
-const index = () => {
+const Index = () => {
   const [view, setView] = useState('All');
   const togView = (status) =>
   {
@@ -54,4 +54,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Index

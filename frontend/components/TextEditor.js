@@ -65,7 +65,7 @@ const handleForm =(event) =>{
     const formData = new FormData();
     formData.append('photo', selectedFile);
     formData.append('title', post.title);
-    formData.append('introduction', post.title);
+    formData.append('introduction', post.introduction);
     formData.append('category', post.category);
     formData.append('content', editorHtml);
 
@@ -79,7 +79,7 @@ const handleForm =(event) =>{
     if (response.ok) {
       console.log('Profile picture and interests uploaded successfully!');
       // Redirect or show success message
-      Router.push('/me');
+      Router.push('/me/mypublications');
     } else {
         setError('Upload Failed');
       console.error('Failed to upload');
@@ -128,7 +128,7 @@ const handleForm =(event) =>{
        
     >
       {categories.map((category, index) =>(
-        <option value={category.name}>{category.name}</option>
+        <option key={index} value={category.name}>{category.name}</option>
       ))}
  
         </select>

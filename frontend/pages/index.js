@@ -11,7 +11,7 @@ import PostFilter from '@/sections/PostFilter'
 import Head from 'next/head'
 import React, { useState } from 'react'
 
-const index = () => {
+const Index = () => {
   const [view, setView] = useState("All");
   const [selectedCategory, setSelectedCategory] = useState("All");
   console.log(selectedCategory);
@@ -33,8 +33,8 @@ const index = () => {
      
     <div class="flex justify-center py-5 mx-50">
      
-      {categories.map((category, index) => (
-        <div className={`item pointer  p-3 m-2 rounded-xl ${view == 'All'? 'bg-white': '' }`} 
+      {categories.map((category, Index) => (
+        <div key={Index} className={`item pointer  p-3 m-2 rounded-xl ${view == 'All'? 'bg-white': '' }`} 
         onClick={() => (togView(category.name))}
         style={{
          backgroundColor: category.name == selectedCategory ? 'blue' :'', color: category.name == selectedCategory ? 'white' :''
@@ -56,4 +56,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Index

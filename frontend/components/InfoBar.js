@@ -1,6 +1,8 @@
 export default function InfoBar({ views, date, likes }) {
     return (
-      <div className="flex items-center space-x-4 text-gray-700 text-sm bg-gray-100 p-2 rounded-md">
+      <div 
+      className="flex items-center space-x-4 text-gray-700 text-sm bg-gray-100 p-2 rounded-md"
+      style={{flexWrap: 'wrap', fontSize:'80%'}}>
         {/* Views */}
         <div className="flex items-center space-x-1">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">

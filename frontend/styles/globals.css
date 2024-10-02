@@ -125,15 +125,24 @@ body {
 
 .alert{
   padding:10px;
+  margin:5px;
+  border-radius:10px;
 
 }
 
 .alert-error{
-  background-color: chocolate;
+  background-color: #FF4C4C;
+  color:white;
+}
+.alert-success{
+  background-color: #22abb4;
   color:white;
 }
 .post-thumbnail{
   width:200px;
   height:300px;
   object-fit: cover;
+}
+.text-capitalized{
+  text-transform: capitalize;
 }

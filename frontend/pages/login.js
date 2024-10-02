@@ -1,12 +1,15 @@
 import Cookies from 'js-cookie';
 import Router from 'next/router';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { AuthContext } from '@/AuthContext';
+import Link from 'next/link';
 
 const LoginPage = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const {authenticate} =useContext(AuthContext);
   const url ="https://api.vikaxnet.com/api/login";
 
   const handleSubmit = async (e) => {
@@ -31,7 +34,7 @@ const LoginPage = () => {
       // Store the token in cookies  
       const token =  data.data.token;
       Cookies.set('token', token, { expires: 7 }); // The token will expire after 7 days
-      
+      authenticate(data.data.token, data.data.user);
       Router.push("/me");
      
     }
@@ -46,7 +49,7 @@ const LoginPage = () => {
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-md w-96">
         <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
-        {error && <p>{error}</p>}
+        {error && <p className='alert alert-error text-capitalized'>{error}</p>}
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
@@ -77,7 +80,7 @@ const LoginPage = () => {
               <input type="checkbox" className="form-checkbox" />
               <span className="ml-2 text-sm text-gray-600">Remember me</span>
             </label>
-            <a href="#" className="text-sm text-blue-500 hover:underline">Forgot password?</a>
+             Forgot password?  
           </div>
 
           <button
@@ -89,7 +92,7 @@ const LoginPage = () => {
       {loading ? "Loading..." : " Sign In"}
           </button>
           <div>
-          <a href="/register" className="text-sm text-blue-500 hover:underline">Create Account</a>
+         <Link href="/register" className="text-sm text-blue-500 hover:underline">Create Account </Link>
           </div>
         </form>
       </div>

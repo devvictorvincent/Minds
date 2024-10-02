@@ -1,10 +1,13 @@
 import Link from 'next/link'
-import React from 'react'
+import React, { useContext } from 'react'
 import RightMenu from './RightMenu'
 import SearchBar from './SearchBar'
 import UserThumb from './UserThumb'
+import { AuthContext } from '@/AuthContext'
 
 const Header = () => {
+  const { isAuthenticated, user, authenticate, goGuest } = useContext(AuthContext);
+
   return (
     <div className="header flex flex-row items-center justify-between content-center">
         <div class="logo-box">
@@ -15,9 +18,10 @@ const Header = () => {
                 <div class="item">
                   <Link href="/create"> Create + </Link>
                 </div> 
-                <div class="item">
+                {isAuthenticated ? <div class="item">
                     <UserThumb />
-                </div> 
+                </div> : <Link href={'/login'}>Sign In </Link>}
+                 
                 <div class="item">
                    <RightMenu />
                 </div>

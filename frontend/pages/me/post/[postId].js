@@ -7,7 +7,6 @@ import LeftNavigation from '@/components/LeftNavigation'
 import Loading from '@/components/Loading'
 import PostSummary from '@/components/PostSummary'
 import { getData } from '@/utils/getData'
-import { goViews } from '@/utils/goViews'
 import { useParams, useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
@@ -34,7 +33,6 @@ const Index = () => {
           setPost(result.data.post);
           console.log('Results:');
           console.log(result);
-          goViews(result.data.post.id);
           
       } catch (error) {
           setError(error.message);
