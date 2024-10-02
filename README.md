@@ -89,18 +89,23 @@ Now, you can access the application by navigating to http://localhost:3000 in yo
 API Endpoints
 
 Authentication:
+
 POST /api/auth/register: Register a new user.
+
 POST /api/auth/login: Log in an existing user.
+
 User:
 GET /api/users/profile/:id: Get user profile by ID.
 PUT /api/users/edit: Edit user profile.
 POST /api/users/follow/:id: Follow another user.
 POST /api/users/unfollow/:id: Unfollow a user.
+
 Content:
 POST /api/posts: Create a new post.
 GET /api/posts: Get all posts (with optional filtering and pagination).
 GET /api/posts/:id: Get a single post by ID.
 POST /api/posts/comment/:id: Add a comment to a post.
+
 Search:
 GET /api/search: Search for posts or users.
 Frontend Routes
@@ -113,6 +118,7 @@ Frontend Routes
 /create: Create a new post with the rich text editor.
 /edit-profile: Edit user profile.
 Project Structure
+
 java
 Copy code
 .
@@ -131,7 +137,9 @@ Copy code
 ├── .env
 ├── package.json
 └── README.md
+
 Backend (Node.js + Express)
+
 controllers/: Handles the core business logic for the API (authentication, post management, etc.).
 middleware/: Authentication middleware to protect certain routes.
 models/: MongoDB schemas (User, Post, Comment).
@@ -145,6 +153,9 @@ Contributing
 We welcome contributions from the community! To contribute:
 
 Fork the repository.
+
+
+
 Create a new branch (git checkout -b feature-branch).
 Make your changes.
 Push to the branch (git push origin feature-branch).
