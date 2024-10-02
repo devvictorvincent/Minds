@@ -12,6 +12,7 @@ Table of Contents
 9.Project Structure
 10.Contributing
 11.License
+
 Features
 Rich Text Editor: Allows users to publish rich-text content with formatting (bold, italics, links, etc.).
 User Authentication: Users can register and log in to access the platform.
@@ -21,6 +22,7 @@ Comments: Engage with content by adding comments and replies.
 Search Functionality: Easily search for articles and writers.
 User Profiles: Users can edit their profiles and display their published content.
 Responsive Design: Optimized for mobile, tablet, and desktop.
+
 Tech Stack
 Backend:
 Node.js: Backend server and API.
@@ -29,6 +31,7 @@ MongoDB: NoSQL database for content storage and user data.
 Mongoose: ODM for MongoDB, providing schema and validation for models.
 JWT (JSON Web Tokens): User authentication and session management.
 Bcrypt: Password hashing for secure authentication.
+
 Frontend:
 Next.js: React framework for server-side rendering and static site generation.
 Tailwind CSS: Utility-first CSS framework for fast styling.
@@ -39,6 +42,7 @@ Getting Started
 Prerequisites
 Node.js (v14.x or later)
 MongoDB (locally or via MongoDB Atlas)
+
 Installation
 Clone the repository:
 bash
@@ -48,6 +52,7 @@ cd minds
 Install dependencies for both the backend and frontend:
 bash
 Copy code
+
 # Install backend dependencies
 npm install
 
@@ -73,6 +78,7 @@ Running the Application
 Run the Backend (Node.js/Express server):
 bash
 Copy code
+
 # Start the backend server
 npm run dev
 This will start the backend API server at http://localhost:5000.
