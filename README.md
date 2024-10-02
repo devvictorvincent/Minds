@@ -87,6 +87,7 @@ This will start the frontend on http://localhost:3000.
 Now, you can access the application by navigating to http://localhost:3000 in your browser.
 
 API Endpoints
+
 Authentication:
 POST /api/auth/register: Register a new user.
 POST /api/auth/login: Log in an existing user.
